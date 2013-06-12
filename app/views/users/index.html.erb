@@ -1,0 +1,23 @@
+<h1>Список коритсувачів</h1>
+
+<table border="1" cellpadding="5px" style="border-collapse: collapse; border: 1px solid black; ">
+  <tr>
+    <th>Прізвище, Ім'я, Побатькові</th>
+    <th>Email</th>
+    <th colspan="3">Дії</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to 'Відобразити', user %></td>
+    <td><%= link_to 'Редагувати', edit_user_path(user) %></td>
+    <td><%= link_to 'Знищити', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Новий користувач', new_user_path %>
